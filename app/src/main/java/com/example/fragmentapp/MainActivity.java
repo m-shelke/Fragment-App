@@ -1,6 +1,7 @@
 package com.example.fragmentapp;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -35,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
         fragABtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                load_Fragment(new AFragment(),false);
+                load_Fragment(AFragment.getInstance("Vashuda",500),false);
             }
         });
 
@@ -57,12 +58,25 @@ public class MainActivity extends AppCompatActivity {
     public void load_Fragment(Fragment fragment,boolean check){
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+//
+//        if (!check) {
+//            Bundle bundle = new Bundle();
+//            bundle.putString("key0", "Ankush Narwade");
+//            bundle.putInt("key1", 1000);
+//
+//            fragment.setArguments(bundle);
+//        }
 
-        if (check == true){
+        if (check){
             fragmentTransaction.add(R.id.frameLayout,fragment);
         }else {
             fragmentTransaction.replace(R.id.frameLayout,fragment);
         }
         fragmentTransaction.commit();
+    }
+
+    public void callFromFragment(){
+        String TAG = "tag log";
+        Log.d(TAG, "callFromFragment:........ ");
     }
 }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
@@ -24,9 +24,12 @@
 <!--        android:name="com.example.fragmentapp.WhiteFragment"/>-->
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:background="@color/white"
+        android:layout_alignParentBottom="true">
 
     <Button
         android:id="@+id/fragABtn"
@@ -34,6 +37,7 @@
         android:layout_height="wrap_content"
         android:textStyle="bold"
         android:text="Frag A"
+        android:layout_margin="5dp"
         android:layout_weight="1"/>
 
     <Button
@@ -42,6 +46,7 @@
         android:layout_height="wrap_content"
         android:textStyle="bold"
         android:text="Frag B"
+        android:layout_margin="5dp"
         android:layout_weight="1"/>
 
     <Button
@@ -50,6 +55,7 @@
         android:layout_height="wrap_content"
         android:textStyle="bold"
         android:text="Frag C"
+        android:layout_margin="5dp"
         android:layout_weight="1"/>
 
     </LinearLayout>
@@ -57,7 +63,8 @@
     <FrameLayout
         android:id="@+id/frameLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        android:layout_above="@+id/linearLayout"/>
 
 
-</LinearLayout>
+</RelativeLayout>
